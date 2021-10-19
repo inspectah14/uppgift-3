@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #12416e;
+}
+
+h1 {
+    color: seashell;
+}
+
+label {
+    margin: 5px;
+    color: seashell;
+}
+
+input {
+    margin: 10px;
+    border: 1px solid black;
+    padding: 6px;
+}
+
+button {
+    margin: 10px 5px 0px 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 6px;
+    font-weight: 600;
+}
+
+#list-container {
+    color: seashell;
+    list-style-position: inside;
+}
+
+.passName {
+    font-weight: bolder;
+    margin-top: 5px;
+    padding-right: 50px;
+}
+
+#page-container {
+    text-align: center;
+}
