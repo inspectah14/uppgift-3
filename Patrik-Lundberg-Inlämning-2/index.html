@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copa Airlines</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="page-container">  
+        <h1>Copa Airlines - Arlanda Check-In</h1>
+        <div id="input-container">
+            <label for="passenger">Enter Passenger Name</label>
+            <br>
+            <input type="text" id="passenger" name="passenger" placeholder="Name" autocomplete="off"/>
+            <br>
+            <button id="add-queue">Add to Queue</button>
+            <button id="fast-track">Fast-Track</button>
+            <button id="remove">Check-In</button>
+        </div>
+        <div id="list-container">
+            <h2>The Check-In Queue</h2>
+            <ol id="list">
+
+            </ol>
+            <h3>There’s currently no people standing in line</h3>
+        </div>
+    </div>   
+  
+  <script src="main.js"></script>
+</body>
+</html>
