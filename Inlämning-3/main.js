@@ -7,14 +7,14 @@ let darkButton = document.querySelector("#dark-button");
 darkButton.addEventListener("click", () => {
     body.style.background = "midnightblue";
     body.style.color = "seashell";
-    quizContainer.style.border = "2px solid seashell";
+    quizContainer.style.border = "5px solid seashell";
 })
 
 let lightButton = document.querySelector("#light-button");
 lightButton.addEventListener("click", () => {
     body.style.background = "linen";
     body.style.color = "black";
-    quizContainer.style.border = "2px solid black";
+    quizContainer.style.border = "5px solid black";
 })
 
 let userAnswers = [];
@@ -55,14 +55,18 @@ checkAnswersButton.addEventListener("click", () => {
     qTenAnswers.forEach(checkAnswers);
     let numberedAnswers = userAnswers.map(Number);
     let reducer = (previousValue, currentValue) => previousValue + currentValue;
-    console.log(numberedAnswers.reduce(reducer));
     let results = numberedAnswers.reduce(reducer);
     let resultsHeading = document.createElement("h4");
-    resultsHeading.innerText = `Your final score: ${results}`;
+    if(results >= 7.5) {
+        resultsHeading.style.color = "springgreen";
+        resultsHeading.style.textShadow = "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black";
+    } else if(results >= 5) {
+        resultsHeading.style.color = "orange";
+    };
+    resultsHeading.innerText = `Your final score: ${results} / 10`;
     endGameContainer.appendChild(resultsHeading);
-    disable(); //förhindrar användaren att submitta fler svar och därmed addera till arrayen.
+    disable();
 })
-
 
 let resetButton = document.querySelector("#reset-button")
 resetContainer.appendChild(resetButton);
