@@ -19,16 +19,20 @@ lightButton.addEventListener("click", () => {
 
 let userAnswers = [];
 
-let qOneAnswers = document.querySelectorAll("[name='quest-1']");
-let qTwoAnswers = document.querySelectorAll("[name='quest-2']");
-let qThreeAnswers = document.querySelectorAll("[name='quest-3']");
-let qFourAnswers = document.querySelectorAll("[name='quest-4']");
-let qFiveAnswers = document.querySelectorAll("[name='quest-5']");
-let qSixAnswers = document.querySelectorAll("[name='quest-6']");
-let qSevenAnswers = document.querySelectorAll("[name='quest-7']");
-let qEightAnswers = document.querySelectorAll("[name='quest-8']");
-let qNineAnswers = document.querySelectorAll("[name='quest-9']");
-let qTenAnswers = document.querySelectorAll("[name='quest-10']");
+const answerOptions = [
+    document.querySelectorAll("[name='quest-1']"),
+    document.querySelectorAll("[name='quest-2']"),
+    document.querySelectorAll("[name='quest-3']"),
+    document.querySelectorAll("[name='quest-4']"),
+    document.querySelectorAll("[name='quest-5']"),
+    document.querySelectorAll("[name='quest-6']"),
+    document.querySelectorAll("[name='quest-7']"),
+    document.querySelectorAll("[name='quest-8']"),
+    document.querySelectorAll("[name='quest-9']"),
+    document.querySelectorAll("[name='quest-10']")
+];
+
+let qTenAnswer = document.querySelectorAll("[name='quest-10']");
 
 const disable = () => {
     checkAnswersButton.disabled = true;
@@ -43,17 +47,16 @@ const checkAnswers = (btn) => {
 let checkAnswersButton = document.querySelector("#checkAnswers-button");
 
 checkAnswersButton.addEventListener("click", () => {
-    qOneAnswers.forEach(checkAnswers);
-    qTwoAnswers.forEach(checkAnswers);
-    qThreeAnswers.forEach(checkAnswers);
-    qFourAnswers.forEach(checkAnswers);
-    qFiveAnswers.forEach(checkAnswers);
-    qSixAnswers.forEach(checkAnswers);
-    qSevenAnswers.forEach(checkAnswers);
-    qEightAnswers.forEach(checkAnswers);
-    qNineAnswers.forEach(checkAnswers);
-    qTenAnswers.forEach(checkAnswers);
-    let numberedAnswers = userAnswers.map(Number);
+    answerOptions.forEach((answer) => answer.forEach(checkAnswers));
+    qTenAnswer.forEach((btn) => {
+        if(btn.checked === true && btn.value === "0") {
+            userAnswers.pop();
+        }
+    })
+    let numberedAnswers = [0];
+    if(userAnswers.length) {
+        numberedAnswers = userAnswers.map(Number);
+    };
     let reducer = (previousValue, currentValue) => previousValue + currentValue;
     let results = numberedAnswers.reduce(reducer);
     let resultsHeading = document.createElement("h4");
